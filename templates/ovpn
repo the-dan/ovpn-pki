@@ -1,0 +1,31 @@
+client
+dev tun
+ping 10
+proto udp
+tls-client
+remote-cert-tls server
+verb 3
+key-direction 1
+
+# all traffic
+redirect-gateway def1
+
+<key>
+{{ key_pem }}
+</key>
+
+<cert>
+{{ cert_pem }}
+</cert>
+
+<ca>
+{% for ca_pem in ca_pems %}
+{{ ca_pem }}
+{% endfor %}
+</ca>
+
+{% if tls_auth_pem %}
+<tls-auth>
+{{ tls_auth_pem }}
+</tls-auth>
+{% endif %}

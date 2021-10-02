@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+bin
+lib
+share
+_private
+.Python
+pyvenv.cfg
+*.code-workspace
